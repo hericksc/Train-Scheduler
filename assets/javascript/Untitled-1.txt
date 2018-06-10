@@ -1,0 +1,8 @@
+Use firebase for City, Location, and Team
+Google API, Location, search, rating. 
+
+Recipe app for food- shopping carts
+Word lookup- definitions, study site for children 
+
+
+Sports API, Yelp, and google Maps
