@@ -1,10 +1,11 @@
 .jumbotron {
-    background-color: maroon;
-    color:gold;
+    background-color: lightgrey;
+    color:black;
     width:700px;
     margin-left: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+    margin-top: 10px;
 }
 .form-group {
     width: 600px;
@@ -15,12 +16,26 @@
 }
 .btn {
     margin-left: 220px;
-    background-color: maroon;
-    color: gold;
+    background-color: darkgray;
+    color: white;
+    border-color:darkgray;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .table-striped {
     margin-left: 220px;
     width: 900px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
+}
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 1;
+    width: 900px;
+}
+img {
+    opacity: 0.5;
+}
+#trainBody {
+    text-align:left;
 }

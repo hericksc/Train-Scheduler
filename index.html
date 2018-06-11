@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -9,73 +8,40 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script type="text/javascript" src="assets/javascript/javascript.js"></script>
-
-
     <body>
-
-
+            <body background="assets\images\trainpic.jpg">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Cavalier's Train Schedule</h1>
+                <h1 class="display-4">THE LAND Train Schedule</h1>
             </div>
         </div>
-
-
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">
-                        <span id="train-name">Train Name</span>
+                        <span>Train Name</span>
                     </th>
                     <th scope="col">
-                        <span id="destination">Destination</span>
+                        <span>Destination</span>
                     </th>
                     <th scope="col">
-                        <span id="frequency">Frequency</span>
+                        <span>Frequency(Min)</span>
                     </th>
                     <th scope="col">
-                        <span id="next-Arrival">Next Arrival</span>
+                        <span>Next Arrival</span>
                     </th>
                     <th scope="col">
-                        <span id="minutes-away">Minutes Away</span>
+                        <span>Minutes Away</span>
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+            <tbody id="trainBody">
+                
             </tbody>
         </table>
         <br>
         <br>
-
-        <form>
+        <div>
             <div class="form-group">
                 <label for="trainName">Train Name</label>
                 <input type="text" class="form-control" id="trainName">
@@ -88,11 +54,10 @@
                 <label for="firstTrain">First Train (HH:mm-military time)</label>
                 <input type="text" class="form-control" id="firstTrain">
             </div>
-
             <div class="form-group">
                 <label for="frequency">Frequency (min)</label>
                 <input type="text" class="form-control" id="frequency">
             </div>
-            <button type="submit" id="button" class="btn btn-primary">Submit</button>
-        </form>
+            <button type="button" id="button" class="btn btn-primary">Submit</button>
+        </div>
     </body>
