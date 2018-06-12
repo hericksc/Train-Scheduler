@@ -61,12 +61,18 @@ database.ref().on("child_added", function (snapshot) {
 
        //calculation to get next train arrival//
         var now = moment();
-        var train = firstTrain;
-        var result = firstTrain + now
-        var randomFormat = "HH:MM";
-        var convertedTime = moment(now, randomFormat);
+        var then = firstTrain;
+
+        // duration.get("hours") +":"+ duration.get("minutes") +":"+ duration.get("seconds")
+        // var result = firstTrain + now - frequency;
+        // var randomFormat = "HH:MM";
+        // var convertedTime = moment(now, randomFormat);
+
+
+        // console.log(moment(moment.duration(now.diff(then))).format("hh:mm:ss"))
         // var convertedDate = moment(trainTime, randomFormat);
         // console.log(moment(convertedDate).toNow());
+        console.log(then);
         console.log(now);
 
         //found this code on "codepedia" to try and delete a row in Train Scheduler Table but it does not work//
@@ -81,7 +87,7 @@ database.ref().on("child_added", function (snapshot) {
 
     }
     /* This script displays a greeting based on the time of day the page is loaded. It is an example from my JavaSript book */
-    //addiing this script from Javasript& JQuery, (Jon Duckett) to add flare to the page/// 
+    //Javasript& JQuery, (Jon Duckett) // 
 
     var today = new Date();
     var hourNow = today.getHours();
@@ -89,7 +95,7 @@ database.ref().on("child_added", function (snapshot) {
 
     if (hourNow > 18) {
         greeting = "Good Evening!";
-    } else if (hourNow > 12) {
+    } else if (hourNow > 11) {
         greeting = "Good Afternoon!";
     } else if (hourNow > 0) {
         greeting = "Good Morning!";
