@@ -6,11 +6,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     margin-top: 10px;
+    font-family: 'Lobster', cursive;
 }
 .form-group {
     width: 600px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    font-family: 'Arvo', serif;
     
     margin-left:220px;
 }
@@ -20,12 +22,14 @@
     color: white;
     border-color:darkgray;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Arvo', serif;
 }
 .table-striped {
     margin-left: 220px;
     width: 900px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
+    font-family: 'Cormorant Unicase', serif;
 }
 body {
     background-repeat: no-repeat;
@@ -38,4 +42,16 @@ img {
 }
 #trainBody {
     text-align:left;
+    font-family: 'Cormorant Unicase', serif;
 }
+#greeting {
+    font-size: 24px;
+}
+#today {
+    margin-left: 220px;
+    font-family: 'Cormorant Unicase', serif;
+    font-weight: bold;
+}
+
+
+
