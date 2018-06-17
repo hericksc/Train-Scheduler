@@ -1,14 +1,5 @@
-// use MOMENT.JS library//
-// First Train Time -- in military time
-// Frequency -- in minutes
-// Code this app to calculate when the next train will arrive; this should be relative to the current time.
-// Users from many different machines must be able to view same train times.
-// Styling and theme are completely up to you. Get Creative!
 
-
-
-
-
+//Information for Firebase Database//
 var config = {
     apiKey: "AIzaSyBKERkOAlaYoZKVXlKY-ntRWOOvs35RGXY",
     authDomain: "train-scheduler-9a706.firebaseapp.com",
@@ -17,14 +8,15 @@ var config = {
     storageBucket: "train-scheduler-9a706.appspot.com",
     messagingSenderId: "801018169358"
 };
+
+// Initializing Database//
 firebase.initializeApp(config);
+//Defining variable database equal to firebase funtion//
 var database = firebase.database();
 $(document).ready(function () {
     $("#button").on("click", function (event) {
         event.preventDefault();
 
-        //console.log("I've been clicked");
-        // Get the input values
 
         var trainName = $("#trainName").val().trim();
         var destination = $("#destination").val().trim();
@@ -37,7 +29,8 @@ $(document).ready(function () {
             frequency: frequency,
             firstTrain: firstTrain,
         });
-
+        $("#trainForm input").val("");
+         
     });
 });
 database.ref().on("child_added", function (snapshot) {
@@ -47,63 +40,65 @@ database.ref().on("child_added", function (snapshot) {
         var frequency = snapshot.val().frequency;
         var firstTrain = snapshot.val().firstTrain;
 
-        var tr = $("<tr>");
-        tr.append($("<td>").text(trainName));
-
-        tr.append($("<td>").text(destination));
-        tr.append($("<td>").text(frequency));
-        tr.append($("<td>").text(firstTrain));
-
-
-        $('#trainBody').append(tr);
+       
 
 
 
        //calculation to get next train arrival//
         var now = moment();
-        var then = firstTrain;
+        // need to indicate where the : will be in the time format. 
+        var trainArr = firstTrain.split(':');
+        // coverting the moment() functuion into hours using hours.(function)
+        var trainTime = moment().hours(trainArr [0]).minutes(trainArr [1]);
+        var maxMoment = moment.max(now, trainTime);
+        var tMinutes;
+        var tArrival;
 
-        // duration.get("hours") +":"+ duration.get("minutes") +":"+ duration.get("seconds")
-        // var result = firstTrain + now - frequency;
-        // var randomFormat = "HH:MM";
-        // var convertedTime = moment(now, randomFormat);
+        if (maxMoment === trainTime) {
+            tArrival = trainTime.format('hh:mm A');
+            tMinutes = trainTime.diff(now, "minutes");
+        }
+        else {
+            var diffTimes = now.diff(trainTime, "minutes");
+            var tRemainder = diffTimes % frequency;
+            tMinutes = frequency - tRemainder;
+            tArrival = moment().add(tMinutes,"m").format('hh:mm A');
+
+        }
+        var tr = $("<tr>");
+        tr.append($("<td>").text(trainName));
+
+        tr.append($("<td>").text(destination));
+        tr.append($("<td>").text(firstTrain));
+        tr.append($("<td>").text(frequency));
+        tr.append($("<td>").text(tArrival));
+        tr.append($("<td>").text(tMinutes));
 
 
-        // console.log(moment(moment.duration(now.diff(then))).format("hh:mm:ss"))
-        // var convertedDate = moment(trainTime, randomFormat);
-        // console.log(moment(convertedDate).toNow());
-        console.log(then);
-        console.log(now);
+        $('#trainBody').append(tr);
 
-        //found this code on "codepedia" to try and delete a row in Train Scheduler Table but it does not work//
-        $("child_added").on("click", ".btnDelete", function () {
-
-            snapshot.remove().trainName;
-            snapshot.remove().destination;
-            snapshot.remove().frequency;
-            snapshot.remove().firstTrain;
-        });
+      
        
-
+        var today = new Date();
+        var hourNow = today.getHours();
+        var greeting;
+    
+        if (hourNow > 18) {
+            greeting = "Good Evening!";
+        } else if (hourNow > 11) {
+            greeting = "Good Afternoon!";
+        } else if (hourNow > 0) {
+            greeting = "Good Morning!";
+        } else {
+            greeting = "Welcome!";
+        }
+        $("#greeting").html(greeting);
+        $("#today").html(today);
+   
     }
     /* This script displays a greeting based on the time of day the page is loaded. It is an example from my JavaSript book */
     //Javasript& JQuery, (Jon Duckett) // 
 
-    var today = new Date();
-    var hourNow = today.getHours();
-    var greeting;
-
-    if (hourNow > 18) {
-        greeting = "Good Evening!";
-    } else if (hourNow > 11) {
-        greeting = "Good Afternoon!";
-    } else if (hourNow > 0) {
-        greeting = "Good Morning!";
-    } else {
-        greeting = "Welcome!";
-    }
-    $("#greeting").html(greeting);
-    $("#today").html(today);
 });
 
 

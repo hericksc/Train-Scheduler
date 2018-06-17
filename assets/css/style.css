@@ -30,19 +30,26 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
     font-family: 'Cormorant Unicase', serif;
+    border-style: groove;
+    border-width: 5px;
 }
 body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: 1;
-    width: 900px;
+
+    background-size: 100% 100%;
 }
 img {
     opacity: 0.5;
+    
+    
 }
 #trainBody {
     text-align:left;
     font-family: 'Cormorant Unicase', serif;
+    border-style: groove;
+    border-width: 5px;
 }
 #greeting {
     font-size: 24px;
